@@ -1,0 +1,91 @@
+$i=0
+while($i -lt 10)
+{
+    $filename = 'Ajith' + $i + '.txt'
+    New-Item -Path $filename -ItemType  File
+     $i++
+}
+
+    $j=0 
+    while( $j -lt 10)
+{
+    $foldernm = 'Ajith' + $j
+    New-Item -Path $foldernm -ItemType  Directory
+    $j++
+}
+
+$j=0
+while($j -lt 10)
+{
+    $folder = 'Ajith' + $j
+
+    $k=0
+    while($k -lt 10)
+    {
+        $folder1 = 'Ajith' + $k
+        New-Item -Path $folder\$folder1 -ItemType  Directory
+        $k++
+    }
+    $j++
+
+}
+
+ $j=0 
+ while($j -lt 10)
+{
+    $folder = 'Ajith' + $j
+
+    $k=0
+    while( $k -lt 10)
+         {
+            $folder1 = 'Ajith' + $k
+            $l=0
+                while($l -lt 10)
+                    {
+                        $folder2 = 'AK' + $l + '.txt'
+                        New-Item -Path $folder\$folder1\$folder2 -ItemType  file
+                        $l++
+                    }
+
+          $k++
+        }
+
+  $j++      
+}
+
+
+$j=0
+while($j -lt 10)
+{
+    $folder = 'Ajith' + $j
+    $k=0
+    while ($k -lt 10)
+         {
+            $folder1 = 'Ajith' + $k
+                $l=0 
+                while( $l -lt 10  )
+                    {
+                        $cpfile = 'Ajith' + $l + '.txt'
+                        Copy-Item $cpfile -Recurse -Destination $folder\$folder1 
+                        $l++
+                    }
+            $k++
+
+        }
+    $j++
+}
+
+$j=0 
+<#>While($j -lt 10)
+{
+    $folder = 'Ajith' + $j
+    $k=0
+    while($k -lt 10)
+    {
+        $folder1 = 'Ajith' + $k
+        Remove-Item -Path $folder\$folder1\* -Recurse 
+        $k++
+    }
+    $j++
+
+}#>
